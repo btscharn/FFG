@@ -1,0 +1,31 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="de.btscharn.ffg.MainFragment">
+
+    <!-- TODO: Change to ViewPager, make fragment_main obsolete -->
+    <!-- TODO: Then Include app_bar_main in activity_main and not in its own file -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="Fahrzeuge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickVehicles"
+            android:textAlignment="center"
+            android:id="@+id/button_vehicles" />
+
+        <Button
+            android:text="Geräte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickDevices"
+            android:textAlignment="center"
+            android:id="@+id/button_devices" />
+    </LinearLayout>
+</FrameLayout>

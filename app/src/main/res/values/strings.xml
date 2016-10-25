@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">FFG</string>
+
+    <!-- TODO: Frame Titles -->
+
+    <string name="main_fragment_title">Feuerwehr Geisenheim</string>
+    <string name="vehicles_fragment_title">Fahrzeuge</string>
+    <string name="devices_fragment_title">Geräte</string>
+    <string name="about_fragment_title">Über die App</string>
+    <string name="settings_fragment_title">Einstellungen</string>
+
+    <!-- TODO: Menu Titles -->
+
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_about">Über die App</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="string_about">Diese App soll irgendwann mal die Geräte auf Fahrzeugen anzeigen können</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_vehicle">VehicleActivity</string>
+    <string name="title_activity_vehicle_detail">VehicleDetailActivity</string>
+    <string name="large_text">
+        Wenn Leitern\n leitern Leitern\ leitern leitern, leitern Leitern leitern Leitern
+    </string>
+</resources>
