@@ -46,7 +46,7 @@ public class VehicleDetailActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, MainActivity.class);
             //Cosnign values to an DetailActivity übergeben
-            intent.putExtra("goback", "from_detail");
+            intent.putExtra("goback", "from_vehicle_detail");
             NavUtils.navigateUpTo(this, intent);
             return true;
         }

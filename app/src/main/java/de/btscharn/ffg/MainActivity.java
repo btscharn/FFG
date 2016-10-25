@@ -1,64 +1,58 @@
 package de.btscharn.ffg;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-     //   implements MainFragment.OnClickButtonListener {
 
-    // Erstelle einen Zähler für GoBack mit dem Wert 0
-    public int gobackcound = 0;
+    /**
+     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * fragments for each of the sections. We use a
+     * {@link FragmentPagerAdapter} derivative, which will keep every
+     * loaded fragment in memory. If this becomes too memory intensive, it
+     * may be best to switch to a
+     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     */
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    /**
+     * The {@link ViewPager} that will host the section contents.
+     */
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dump);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        ActionBar ab =getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "F*** off, I'm not ready", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        openStartFragment();
-        gobackcound = 0;
-    }
-
-    @Override
-    public void onBackPressed() {
-
-        /* Zähler wird geprüft, wenn größer 0, dann wird zurückgegangen und
-        * den Zähler um 1 reduziert. Sobald Zähler bei 0 angekommen ist, wird
-        * die App beendet
-        * */
-
-        if (gobackcound > 0){
-            gobackcound = gobackcound - 1;
-            super.onBackPressed();
-        }else{
-            moveTaskToBack(true);
-            android.os.Process.killProcess(android.os.Process.myPid());
-            System.exit(1);
-        }
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Needs Action
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -76,102 +75,69 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            openSettingsFragment();
+            return true;
         }
         if (id == R.id.action_about) {
-            openAboutFragment();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
     /**
-     * Fragment Callers
+     * A placeholder fragment containing a simple view available in example code
      */
+
 
     /**
-     * Open startup fragment. If Return from VehicleDetailActivity, open VehiclesFragment
+     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
+     * one of the sections/tabs/pages.
      */
-    public void openStartFragment() {
-        try {
-            Intent i = getIntent();
-            String check_intent = i.getStringExtra("goback");
-            String check_intent_string = "from_vehicles";
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-            if(check_intent.equals(check_intent_string)){
-                openVehiclesFragment();
-            }else{
-                openMainFragment();
-            }
-        } catch( Exception e){
-            openMainFragment();
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
         }
 
-    }
+        @Override
+        public Fragment getItem(int position) {
+            // getItem is called to instantiate the fragment for the given page.
+            // Return a PlaceholderFragment (defined as a static inner class below).
+            //return VehiclesFragment.newInstance(position + 1);
+            switch (position) {
+                case 0:
+                    VehiclesFragment tab1 = new VehiclesFragment();
+                    return tab1;
+                case 1:
+                    DevicesFragment tab2 = new DevicesFragment();
+                    return tab2;
+// TODO: Create QuizFragment, set below getCount()  return 3
+//                case 2:
+//                    QuizFragment tab3 = new QuizFragment();
+//                    return tab3;
+                default:
+                    return null;
+            }
+        }
 
-    public void openMainFragment() {
-        setTitle(R.string.main_fragment_title);
-        gobackcound = gobackcound + 1;
-        MainFragment mainFragment = new MainFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(
-                R.id.content_main,
-                mainFragment,
-                mainFragment.getTag()
-                ).addToBackStack(null)
-                .commit();
-    }
+        @Override
+        public int getCount() {
+            // Show 2 total pages until QuizFragment is finished
+            return 2;
+        }
 
-    public void openVehiclesFragment() {
-        setTitle(R.string.vehicles_fragment_title);
-        gobackcound = gobackcound + 1;
-        VehiclesFragment vehiclesFragment = new VehiclesFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(
-                R.id.content_main,
-                vehiclesFragment,
-                vehiclesFragment.getTag()
-                ).addToBackStack(null)
-                .commit();
-    }
-
-    public void openDevicesFragment() {
-        setTitle(R.string.devices_fragment_title);
-        gobackcound = gobackcound + 1;
-        DevicesFragment devicesFragment = new DevicesFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(
-                R.id.content_main,
-                devicesFragment,
-                devicesFragment.getTag()
-        ).addToBackStack(null)
-                .commit();
-    }
-
-    public void openAboutFragment() {
-        setTitle(R.string.about_fragment_title);
-        gobackcound = gobackcound + 1;
-        AboutFragment aboutFragment = new AboutFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(
-                R.id.content_main,
-                aboutFragment,
-                aboutFragment.getTag()
-        ).addToBackStack(null)
-                .commit();
-    }
-
-    public void openSettingsFragment() {
-        setTitle(R.string.settings_fragment_title);
-        gobackcound = gobackcound + 1;
-        SettingsFragment settingsFragment = new SettingsFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(
-                R.id.content_main,
-                settingsFragment,
-                settingsFragment.getTag()
-        ).addToBackStack(null)
-                .commit();
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "vehicles_fragment_title";
+                case 1:
+                    return "devices_fragment_title";
+                case 2:
+                    return "quiz_fragment_title";
+            }
+            return null;
+        }
     }
 
     public void openVehicleDetailActivity() {
@@ -179,28 +145,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-/** uncomment implements...  on class beginning
-    public void onClickButton(int button) {
-        switch(button) {
-            case 1: openVehiclesFragment();
-                break;
-            case 2: openDevicesFragment();
-                break;
-            default: break;
-        }
-    }
-*/
-    public void onClickVehicles(View v) {
-        openVehiclesFragment();
-    }
-
-    public void onClickDevices(View v) {
-        openDevicesFragment();
-    }
-
     public void onChooseVehicle(View v) {
         openVehicleDetailActivity();
     }
-
-
 }

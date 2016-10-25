@@ -6,6 +6,7 @@
     <string name="main_fragment_title">Feuerwehr Geisenheim</string>
     <string name="vehicles_fragment_title">Fahrzeuge</string>
     <string name="devices_fragment_title">Geräte</string>
+    <string name="quiz_fragment_title">Quiz</string>
     <string name="about_fragment_title">Über die App</string>
     <string name="settings_fragment_title">Einstellungen</string>
 
@@ -25,4 +26,6 @@
     <string name="large_text">
         Wenn Leitern\n leitern Leitern\ leitern leitern, leitern Leitern leitern Leitern
     </string>
+    <string name="title_activity_dump">DUMPActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

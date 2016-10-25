@@ -52,7 +52,7 @@
             android:id="@+id/button_1_45" />
 
         <Button
-            android:text="GW-L 25/20 (1-64)"
+            android:text="GW-L (1-64)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onChooseVehicle"
@@ -76,7 +76,7 @@
             android:id="@+id/button_1_19" />
 
         <Button
-            android:text="PKW/Kangoo (1-16)"
+            android:text="Kangoo (1-16)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onChooseVehicle"
