@@ -4,93 +4,9 @@
     android:layout_height="match_parent"
     tools:context="de.btscharn.ffg.VehiclesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:text="ELW (1-11)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onChooseVehicle"
-            android:textAlignment="center"
-            android:id="@+id/button_1_11" />
-
-        <Button
-            android:text="LF 20/12 (1-44)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onChooseVehicle"
-            android:textAlignment="center"
-            android:id="@+id/button_1_44" />
-
-        <Button
-            android:text="DLK 23/12 (1-30)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onChooseVehicle"
-            android:textAlignment="center"
-            android:id="@+id/button_1_30" />
-
-        <Button
-            android:text="TLF 25/20 (1-22)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onChooseVehicle"
-            android:textAlignment="center"
-            android:id="@+id/button_1_22" />
-
-        <Button
-            android:text="LF 16-TS (1-45)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onChooseVehicle"
-            android:textAlignment="center"
-            android:id="@+id/button_1_45" />
-
-        <Button
-            android:text="GW-L (1-64)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onChooseVehicle"
-            android:textAlignment="center"
-            android:id="@+id/button_1_64" />
-
-        <Button
-            android:text="Unimog (1-69)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onChooseVehicle"
-            android:textAlignment="center"
-            android:id="@+id/button_1_69" />
-
-        <Button
-            android:text="MTF (1-19)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onChooseVehicle"
-            android:textAlignment="center"
-            android:id="@+id/button_1_19" />
-
-        <Button
-            android:text="Kangoo (1-16)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onChooseVehicle"
-            android:textAlignment="center"
-            android:id="@+id/button_1_16" />
-
-        <Button
-            android:text="RTB 2 (1-78)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onChooseVehicle"
-            android:textAlignment="center"
-            android:id="@+id/button_1_78" />
-
-    </LinearLayout>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vehicle_list"/>
 
 </FrameLayout>

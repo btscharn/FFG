@@ -30,7 +30,7 @@
                 app:srcCompat="@drawable/leiter_gross"
                 android:layout_gravity="center"
                 android:padding="8dp"
-                android:id="@+id/app_bar_image"
+                android:id="@+id/image_vehicle_detail_appbar"
                 android:paddingBottom="8dp" />
 
             <android.support.v7.widget.Toolbar
@@ -43,8 +43,6 @@
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_vehicle_detail" />
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/item_detail_container"

@@ -2,18 +2,20 @@ package de.btscharn.ffg;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class VehicleDetailActivity extends AppCompatActivity {
 
-    int gobackcound = 0;
+    String title;
+    String url;
+    String fulltext;
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,20 @@ public class VehicleDetailActivity extends AppCompatActivity {
         }
 
 
+
+        Intent i = getIntent();
+
+        title = i.getStringExtra("Title");
+        fulltext = i.getStringExtra("Description");
+        url = i.getStringExtra("URL");
+
+        TextView content = (TextView) findViewById(R.id.text_detail_content);
+        content.setText(fulltext);
+
+        setTitle(title);
+
+        //System.out.println(url);
+        titleImage();
 
     }
 
@@ -53,5 +69,11 @@ public class VehicleDetailActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //setTitle("VehiclePlaceholder");
+    /**
+     * TODO: Replace placeholder image
+     */
+    public void titleImage() {
+        img = (ImageView) findViewById(R.id.image_vehicle_detail_appbar);
+        img.setImageResource(R.mipmap.ic_leiter);
+    }
 }

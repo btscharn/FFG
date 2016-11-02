@@ -8,8 +8,9 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <TextView
-        android:text="PLACEHOLDER_VEhicle Detail"
+        android:text=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+        android:id="@+id/text_detail_content" />
 </LinearLayout>
