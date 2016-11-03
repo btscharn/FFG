@@ -25,13 +25,14 @@ import de.btscharn.ffg.data.JSONAdapter;
 public class VehiclesFragment extends Fragment {
 
     public View rootview;
+    public ListView listView;
+
     //define file which contains the displayed Strings
     public String data = "data_vehicles.json";
 
     public VehiclesFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,18 +41,26 @@ public class VehiclesFragment extends Fragment {
 
         rootview = inflater.inflate(R.layout.fragment_vehicles, container, false);
 
-        JSONAdapter jAdapter = new JSONAdapter();
-
-        try {
-            jAdapter.getListStrings(rootview, getActivity(), data, getContext());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        getList();
 
         return rootview;
 
     }
 
+    /**
+     * Creates ItemList with data from JSON file
+     */
+    public void getList() {
+        listView = (ListView) rootview.findViewById(R.id.vehicles_list);
+        JSONAdapter jAdapter = new JSONAdapter();
+        try {
+            jAdapter.getListStrings(listView, getActivity(), data, getContext());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+/*
     public void getVehicleStrings() throws JSONException {
 
         JSONAdapter jAdapter = new JSONAdapter();
@@ -70,12 +79,13 @@ public class VehiclesFragment extends Fragment {
             }
         });
     }
+*/
 
     /**
      * Calls VehicleDetailActivity and handles related data
      * @param view no idea why
      * @param listitem
-     */
+     *
     public void openItem(View view, ListItem listitem){
 
         String title = listitem.getTitle();
@@ -96,50 +106,5 @@ public class VehiclesFragment extends Fragment {
         getContext().startActivity(intent);
 
     }
-
-    /**
-     * Extract values from JSON file loaded inloadJSONFromAsset()
-     * @return values of file as Strings
-     * @throws JSONException
-     */
-
-    public ArrayList<ListItem> getArrayFromString() throws JSONException {
-        ArrayList<ListItem> listitems = new ArrayList<>();
-
-        JSONArray jsonarray = new JSONArray(loadJSONFromAsset());
-        for (int i = 0; i < jsonarray.length(); i++) {
-            JSONObject obj = jsonarray.getJSONObject(i);
-
-            String title = obj.getString("Title");
-            String description = obj.getString("Description");
-            String url = obj.getString("URL");
-            String fulltext = obj.getString("FullText");
-            listitems.add(new ListItem(title, description, url, fulltext));
-        }
-        return listitems;
-    }
-
-    /**
-     * Load JSON file data_vehicles.json
-     * @return JSON file as String
-     */
-    public String loadJSONFromAsset() {
-        String json;
-        String json_file = "data_vehicles.json";
-        try {
-
-            InputStream is = getContext().getAssets().open(json_file);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-
-    }
+    */
 }

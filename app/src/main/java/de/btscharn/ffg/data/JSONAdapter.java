@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import de.btscharn.ffg.MainActivity;
 import de.btscharn.ffg.R;
 import de.btscharn.ffg.VehicleDetailActivity;
-import de.btscharn.ffg.VehiclesFragment;
 
 import static java.security.AccessController.getContext;
 
@@ -28,12 +27,13 @@ import static java.security.AccessController.getContext;
 
 public class JSONAdapter {
 
-    public void getListStrings(View rootview, Activity activity, String data,final Context context) throws JSONException {
+    CustomListAdapter adapter;
 
-        ArrayList<ListItem> arrayOfVehicles;
-        arrayOfVehicles = getArrayFromString(data, context);
-        CustomListAdapter adapter = new CustomListAdapter(activity, arrayOfVehicles);
-        ListView listView = (ListView) rootview.findViewById(R.id.vehicle_list);
+    public void getListStrings(ListView listView, Activity activity, String data,final Context context) throws JSONException {
+
+        ArrayList<ListItem> listItem;
+        listItem = getArrayFromString(data, context);
+        adapter = new CustomListAdapter(activity, listItem);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,12 +67,11 @@ public class JSONAdapter {
     }
 
     /**
-     * Load JSON file data_vehicles.json
+     * Load JSON file which is given
      * @return JSON file as String
      */
     public String loadJSONFromAsset(String json_file, Context context) {
         String json;
-     //   String json_file = "data_vehicles.json";
         try {
             InputStream is = context.getAssets().open(json_file);
             int size = is.available();
