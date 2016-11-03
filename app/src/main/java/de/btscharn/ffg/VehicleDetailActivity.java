@@ -14,6 +14,7 @@ public class VehicleDetailActivity extends AppCompatActivity {
 
     String title;
     String url;
+    String description;
     String fulltext;
     ImageView img;
 
@@ -35,8 +36,9 @@ public class VehicleDetailActivity extends AppCompatActivity {
         Intent i = getIntent();
 
         title = i.getStringExtra("Title");
-        fulltext = i.getStringExtra("Description");
+        description = i.getStringExtra("Description");
         url = i.getStringExtra("URL");
+        fulltext = i.getStringExtra("FullText");
 
         TextView content = (TextView) findViewById(R.id.text_detail_content);
         content.setText(fulltext);

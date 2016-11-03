@@ -1,12 +1,17 @@
 package de.btscharn.ffg;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,6 +61,37 @@ public class VehiclesFragment extends Fragment {
         ListView listView = (ListView) rootview.findViewById(R.id.vehicle_list);
         listView.setAdapter(adapter);
 
+        //TODO: handle title, description, url, fulltext of listitem to openIten(...)
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String title = parent.getItemAtPosition(position).toString();
+                openItem(view, title);
+            }
+        });
+
+
+    }
+
+    public void openItem(View view, String title){
+
+        String description = "d";
+        String url = "u";
+        String fulltext = "f";
+
+        ListItem list = (ListItem) view.getTag();
+
+        // Erstelle einen neuen Intent und weise ihm eine Actvity zu
+        Intent intent = new Intent(getContext(), VehicleDetailActivity.class);
+
+        //Werte an DetailActivity übergeben
+        intent.putExtra("Title", title);
+        intent.putExtra("Description", description);
+        intent.putExtra("URL", url);
+        intent.putExtra("FullText", fulltext);
+
+        // Starte Activity
+        getContext().startActivity(intent);
 
     }
 
