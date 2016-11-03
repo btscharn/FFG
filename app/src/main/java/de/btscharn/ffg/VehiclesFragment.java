@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,21 +63,25 @@ public class VehiclesFragment extends Fragment {
         listView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String title = parent.getItemAtPosition(position).toString();
-                openItem(view, title);
+                ListItem listitem = (ListItem) parent.getAdapter().getItem(position);
+                openItem(view, listitem);
             }
         });
 
 
     }
 
-    public void openItem(View view, String title){
+    /**
+     * Calls VehicleDetailActivity and handles related data
+     * @param view no idea why
+     * @param listitem
+     */
+    public void openItem(View view, ListItem listitem){
 
-        String description = "d";
-        String url = "u";
-        String fulltext = "f";
-
-        ListItem list = (ListItem) view.getTag();
+        String title = listitem.getTitle();
+        String description = listitem.getDescription();
+        String url = listitem.getURL();
+        String fulltext = listitem.getFulltext();
 
         // Erstelle einen neuen Intent und weise ihm eine Actvity zu
         Intent intent = new Intent(getContext(), VehicleDetailActivity.class);

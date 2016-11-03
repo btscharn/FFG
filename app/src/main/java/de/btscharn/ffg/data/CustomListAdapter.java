@@ -47,7 +47,7 @@ public class CustomListAdapter extends ArrayAdapter<ListItem> {
         tvName.setText(list.title);
         tvDescription.setText(list.description);
 
-        tvName.setTag(list);
+ //       tvName.setTag(list);
  //       tvName.setOnClickListener(new View.OnClickListener(){
  //           public void onClick(View view){
  //               openitem(view);
@@ -55,7 +55,7 @@ public class CustomListAdapter extends ArrayAdapter<ListItem> {
  //           }
   //      });
 
-        tvDescription.setTag(list);
+ //       tvDescription.setTag(list);
  //       tvDescription.setOnClickListener(new View.OnClickListener(){
  //           public void onClick(View view){
  //               openitem(view);

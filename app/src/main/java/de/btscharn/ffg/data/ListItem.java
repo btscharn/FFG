@@ -7,7 +7,7 @@ public class ListItem {
     public String url;
     public String fulltext;
 
-    public ListItem(String title, String description, String url, String langtext){
+    public ListItem(String title, String description, String url, String fulltext){
         this.title = title;
         this.description = description;
         this.url = url;
