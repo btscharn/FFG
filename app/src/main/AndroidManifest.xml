@@ -24,10 +24,6 @@
             android:name=".VehicleDetailActivity"
             android:label="@string/title_activity_vehicle_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".DUMPActivity"
-            android:label="@string/title_activity_dump"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

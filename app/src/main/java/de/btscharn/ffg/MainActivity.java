@@ -136,13 +136,4 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
-
-    public void openVehicleDetailActivity() {
-        Intent intent = new Intent(this, VehicleDetailActivity.class);
-        startActivity(intent);
-    }
-
-    public void onChooseVehicle(View v) {
-        openVehicleDetailActivity();
-    }
 }

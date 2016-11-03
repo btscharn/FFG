@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -21,11 +20,13 @@ import java.util.ArrayList;
 
 import de.btscharn.ffg.data.ListItem;
 import de.btscharn.ffg.data.CustomListAdapter;
+import de.btscharn.ffg.data.JSONAdapter;
 
 public class VehiclesFragment extends Fragment {
 
-    private String in;
     public View rootview;
+    //define file which contains the displayed Strings
+    public String data = "data_vehicles.json";
 
     public VehiclesFragment() {
         // Required empty public constructor
@@ -37,38 +38,37 @@ public class VehiclesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
-           rootview = inflater.inflate(R.layout.fragment_vehicles, container, false);
+        rootview = inflater.inflate(R.layout.fragment_vehicles, container, false);
+
+        JSONAdapter jAdapter = new JSONAdapter();
 
         try {
-            getVehicleStrings();
+            jAdapter.getListStrings(rootview, getActivity(), data, getContext());
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-           return rootview;
+        return rootview;
 
     }
 
     public void getVehicleStrings() throws JSONException {
 
-        MainActivity activity = new MainActivity();
+        JSONAdapter jAdapter = new JSONAdapter();
 
         ArrayList<ListItem> arrayOfVehicles;
-        arrayOfVehicles = getArrayFromString();
+        arrayOfVehicles = jAdapter.getArrayFromString(data, getContext());
         CustomListAdapter adapter = new CustomListAdapter(getActivity(), arrayOfVehicles);
         ListView listView = (ListView) rootview.findViewById(R.id.vehicle_list);
         listView.setAdapter(adapter);
 
-        //TODO: handle title, description, url, fulltext of listitem to openIten(...)
-        listView.setOnItemClickListener(new OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ListItem listitem = (ListItem) parent.getAdapter().getItem(position);
                 openItem(view, listitem);
             }
         });
-
-
     }
 
     /**
