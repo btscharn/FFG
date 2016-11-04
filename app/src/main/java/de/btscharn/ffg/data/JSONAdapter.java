@@ -15,32 +15,50 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import de.btscharn.ffg.MainActivity;
-import de.btscharn.ffg.R;
+import de.btscharn.ffg.VehiclesFragment;
+import de.btscharn.ffg.DevicesFragment;
 import de.btscharn.ffg.VehicleDetailActivity;
-
-import static java.security.AccessController.getContext;
 
 /**
  * Created by Benedikt on 03.11.2016.
  */
 
+/**
+ * Collects data from JSON file and sets up ListView
+ */
 public class JSONAdapter {
 
     CustomListAdapter adapter;
 
-    public void getListStrings(ListView listView, Activity activity, String data,final Context context) throws JSONException {
+    private Context context1;
 
+    public Context getContext1() {
+        return context1;
+    }
+
+    public void getListStrings(ListView listView, Activity activity, String data, Context context) throws JSONException {
+
+        context1 = context;
+
+         /* TODO: Change to specific ListItem in all classes
+                    if(data == VehiclesFragment.getData()) {
+                        ArrayList<ListItemVehicles> listItem;
+                    }
+                    if(data == DevicesFragment.getData()) {
+                       ArrayList<ListItemDevices> listItem;
+                   }
+        */
         ArrayList<ListItem> listItem;
         listItem = getArrayFromString(data, context);
-        adapter = new CustomListAdapter(activity, listItem);
+        adapter = new CustomListAdapter(context, listItem);
         listView.setAdapter(adapter);
 
+        //Make List clickable
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ListItem listitem = (ListItem) parent.getAdapter().getItem(position);
-                openItem(view, listitem, context);
+                openItem(view, listitem, getContext1());
             }
         });
     }
@@ -62,6 +80,20 @@ public class JSONAdapter {
             String url = obj.getString("URL");
             String fulltext = obj.getString("FullText");
             listitems.add(new ListItem(title, description, url, fulltext));
+            if(data == VehiclesFragment.getData()) {
+                String radio = obj.getString("Radio");
+     //           listitems.add(new ListItem(title, radio, description, url, fulltext));
+            }
+            if(data == DevicesFragment.getData()) {
+                int on1_11 = obj.getInt("1-11");
+                int on1_44 = obj.getInt("1-44");
+                int on1_30 = obj.getInt("1-30");
+                int on1_22 = obj.getInt("1-22");
+                int on1_45 = obj.getInt("1-45");
+                int on1_64 = obj.getInt("1-64");
+                int on1_78 = obj.getInt("1-78");
+     //           listitems.add(new ListItem(title, description, url, fulltext, on1_11, on1_22, on1_30, on1_44, on1_45, on1_64, on1_78));
+            }
         }
         return listitems;
     }

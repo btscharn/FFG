@@ -43,6 +43,8 @@ public class VehicleDetailActivity extends AppCompatActivity {
         TextView content = (TextView) findViewById(R.id.text_detail_content);
         content.setText(fulltext);
 
+        setTitle(title);
+
         //System.out.println(url);
         titleImage();
 

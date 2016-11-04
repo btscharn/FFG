@@ -1,22 +1,44 @@
-[// TODO: Image instead of URL
+// TODO: Image instead of URL
 
-  [
+//Vehicle Strings include number of devices stored on this vehicle
+[
   {
     "Title":"Mehrzweckstrahlrohr",
     "Description":"LF 20/12, TLF 20/25, LF 16-TS",
     "URL":"http://i0.wp.com/feuerwehr-geisenheim.de/wp-content/uploads/2014/10/p7110009.jpg",
-    "FullText":"Das Mehrzweckstrahlrohr dient der Wasserabgabe. Es gibt die Größen B, C und D."
+    "FullText":"Das Mehrzweckstrahlrohr dient der Wasserabgabe. Es gibt die Größen B, C und D.",
+    "1-11": 0,
+    "1-44": 6,
+    "1-30": 2,
+    "1-22": 6,
+    "1-45": 6,
+    "1-64": 0,
+    "1-78": 0
   },
   {
     "Title":"Roll-Druckschlauch",
     "Description":"LF 20/12, TLF 20/25, LF 16-TS, DLK 23/12",
     "URL":"http://i0.wp.com/feuerwehr-geisenheim.de/wp-content/uploads/2014/10/p7110009.jpg",
-    "FullText":"Der Rollschlauch, dient der Wasserförderung. Er hat die Größe B, C oder D.\nDie Standardlänge des B-Schlauchs ist 20m, die des C-Schlauchs 15m."
+    "FullText":"Der Rollschlauch, dient der Wasserförderung. Er hat die Größe B, C oder D.\nDie Standardlänge des B-Schlauchs ist 20m, die des C-Schlauchs 15m.",
+    "1-11": 0,
+    "1-44": 6,
+    "1-30": 2,
+    "1-22": 6,
+    "1-45": 6,
+    "1-64": 0,
+    "1-78": 0
   },
   {
     "Title":"Saugkorb",
     "Description":"LF 20/12, TLF 20/25, LF 16-TS",
     "URL":"http://i0.wp.com/feuerwehr-geisenheim.de/wp-content/uploads/2014/10/p7110009.jpg",
-    "FullText":"Der Saugkorb dient dem Saugen von Wasser aus Gewässern. Er sitzt am Ende der Saugleitung.\nBesonders ist darauf zu achten, dass die Ventilleine befestigt wird und dass keine Verschmutzungen die Saugleistung beeinträchtigen."
-  },
+    "FullText":"Der Saugkorb dient dem Saugen von Wasser aus Gewässern. Er sitzt am Ende der Saugleitung.\nBesonders ist darauf zu achten, dass die Ventilleine befestigt wird und dass keine Verschmutzungen die Saugleistung beeinträchtigen.",
+    "1-11": 0,
+    "1-44": 1,
+    "1-30": 2,
+    "1-22": 1,
+    "1-45": 1,
+    "1-64": 0,
+    "1-78": 0
+  }
 ]

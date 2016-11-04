@@ -1,14 +1,11 @@
 package de.btscharn.ffg.data;
 
-public class ListItem {
+public class ListItemDevices {
 
     private String title;
     private String description;
     private String url;
     private String fulltext;
-    //Vehicle-specific
-    private String radio;
-    //Device-specific
     private int on1_11;
     private int on1_44;
     private int on1_30;
@@ -18,19 +15,11 @@ public class ListItem {
     private int on1_78;
 
 
-    public ListItem(String title, String description, String url, String fulltext){
+    public ListItemDevices(String title, String description, String url, String fulltext){
         this.title = title;
         this.description = description;
         this.url = url;
         this.fulltext = fulltext;
-    }
-
-    public void ListItemVehicles(String radio) {
-        this.radio = radio;
-    }
-
-    public void ListItemDevices(String radio) {
-        this.radio = radio;
     }
 
     public String getTitle() {

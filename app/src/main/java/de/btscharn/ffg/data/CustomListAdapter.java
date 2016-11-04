@@ -26,7 +26,6 @@ public class CustomListAdapter extends ArrayAdapter<ListItem> {
     }
 
     /**
-     * TODO: Set OnClickListener not on TextView but on item_list or so
      * @param position
      * @param convertView
      * @param parent
@@ -41,11 +40,11 @@ public class CustomListAdapter extends ArrayAdapter<ListItem> {
 
         }
 
-        final TextView tvName = (TextView) convertView.findViewById(R.id.tv_name);
+        TextView tvName = (TextView) convertView.findViewById(R.id.tv_name);
         TextView tvDescription = (TextView) convertView.findViewById(R.id.tv_description);
 
-        tvName.setText(list.title);
-        tvDescription.setText(list.description);
+        tvName.setText(list.getTitle());
+        tvDescription.setText(list.getDescription());
 
  //       tvName.setTag(list);
  //       tvName.setOnClickListener(new View.OnClickListener(){
@@ -75,6 +74,7 @@ public class CustomListAdapter extends ArrayAdapter<ListItem> {
 
     }
 
+    /*
     public void openitem(View view){
 
 
@@ -84,16 +84,16 @@ public class CustomListAdapter extends ArrayAdapter<ListItem> {
         Intent intent = new Intent(getContext(), VehicleDetailActivity.class);
 
         //Werte an DetailActivity übergeben
-        intent.putExtra("Title", list.title);
-        intent.putExtra("Description", list.description);
-        intent.putExtra("URL", list.url);
-        intent.putExtra("FullText", list.fulltext);
+        intent.putExtra("Title", list.getTitle());
+        intent.putExtra("Description", list.getDescription());
+        intent.putExtra("URL", list.getURL());
+        intent.putExtra("FullText", list.getFulltext());
 
         // Starte Activity
         getContext().startActivity(intent);
 
     }
-
+    */
 
 
 }

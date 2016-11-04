@@ -3,61 +3,71 @@
 
 [
   {
-    "Title":"ELW (1-11)",
+    "Title":"ELW 1 (1-11)",
+    "Radio" :"1-11",
     "Description":"Einsatzleitfahrzeug",
     "URL":"http://i0.wp.com/feuerwehr-geisenheim.de/wp-content/uploads/2014/10/p7110009.jpg",
     "FullText":"Der Einsatzleitwagen ist das Fahrzeug der Einsatzleitung. Von diesem Fahrzeug aus werden Einsätze koordiniert und die zentrale Atemschutzüberwachung durchgeführt."
   },
   {
     "Title":"LF 20/12  (1-44)",
+    "Radio" :"1-44",
     "Description":"Löschgruppenfahrzeug",
     "URL":"http://www.feuerwehr-geiseheim/technik/fahrzeuge/lf-1612/",
     "FullText":"Das Löschgruppenfahrzeug ist das Erstangriffsfahrzeug der Feuerwehr Geisenheim.\nDaher ist die Beladung des Fahrzeugs auf schnelle, wirksame und lebensrettende Maßnahmen ausgelegt. Sie umfasst also nicht nur Beladung für die Brandbekämpfung, sondern vor allem für technische Hilfeleistungen aller Art."
   },
   {
     "Title":"DLK 23/12  (1-30)",
+    "Radio" :"1-30",
     "Description":"Drehleiter mit Korb",
     "URL":"http://www.feuerwehr-geiseheim/technik/fahrzeuge/dlk-2312/",
     "FullText":"Die Drehleiter ist ein Fahrzeug, dass der Rettung aus Höhen und, in begrenztem Umfang, auch aus Tiefen dient.\nDaher ist die DLK bei Brandeinsätzen das zweite Fahrzeug, dass im Löschzug ausrückt."
   },
   {
     "Title":"TLF 25/20  (1-22)",
+    "Radio" :"1-22",
     "Description":"Tanklöschfahrzeug",
     "URL":"http://www.feuerwehr-geiseheim/technik/fahrzeuge/tlf-2520/",
     "FullText":"Aufgabe des Tanklöschfahrzeuges ist die Brandbekämpfung und die technische Hilfeleistung kleineren Umfanges. Daher ist die Beladung des TLF 20/25 auf schnelle, wirksame und lebensrettende Maßnahmen am Einsatzort ausgelegt."
   },
   {
     "Title":"LF 16-TS  (1-45)",
+    "Radio" :"1-45",
     "Description":"Löschgruppenfahrzeug",
     "URL":"http://www.feuerwehr-geiseheim/technik/fahrzeuge/lf-16-ts/",
     "FullText":"Das Löschgruppenfahrzeug KAT-S dient der Wasserförderung über lange Wegstrecken.\nHierfür ist das Fahrzeug mit einer Vorbaupumpe und einer Tragkraftspritze,  sowie einer großen Anzahl an Schläuchen und wasserführenden Armaturen ausgerüstet."
   },
   {
     "Title":"GW-L  (1-64)",
+    "Radio" :"1-64",
     "Description":"Gerätewagen Logistik",
     "URL":"http://www.feuerwehr-geiseheim/technik/fahrzeuge/gw-l/",
     "FullText":"Der Gerätewagen Logistik GW-L ist das Nachschub- und Logistikfahrzeug der Feuerwehr Geisenheim.\nAusgerüstet mit einer Ladebordwand und einem variablen, auf Rollcontainern basierendem Beladungskonzept, kann dieses Fahrzeug von Schläuchen über pneumatische Rettungsgeräte hin bis zu einsatzfertigen Atemschutzgeräten nahezu alles transportieren, was die Feuerwehr an der Einsatzstelle benötigt."
   },
   {
     "Title":"Unimog  (1-69)",
+    "Radio" :"1-69",
     "Description":"Unimog",
     "URL":"http://www.feuerwehr-geiseheim/technik/fahrzeuge/unimog/",
     "FullText":"Der Unimog zeichnet sich durch seine Geländegängigkeit und Zugkraft aus.\nAuf der Ladefläche ist Platz für je nach Einsatzlage austauschbare Module sowie zu transportierendes Material.\nEr ist das Zugfahrzeug für den Anhänger des RTB 2."
   },
   {
     "Title":"MTF  (1-19)",
+    "Radio" :"1-19",
     "Description":"Mannschaftstrasnportfahrzeug",
     "URL":"http://www.feuerwehr-geiseheim/technik/fahrzeuge/mtf/",
     "FullText":"Das Mannschaftstransportfahrzeug dient der Beförderung von Mannschaft und kleineren Geräten an Einsatzstellen und Übungen."
   },
   {
     "Title":"PKW  (1-16)",
+    "Radio" :"1-16",
     "Description":"Kangoo",
     "URL":"http://www.feuerwehr-geiseheim/technik/fahrzeuge/pkw/",
     "FullText":"Der Personenkraftwagen PKW der Feuerwehr Geisenheim dient dem Personen- und Materialtransport.\nEbenso wird dieses Fahrzeug für Dienstfahrten und Fahrten zu Lehrgängen genutzt.\nIm Einsatzdienst wird der Renault Kangoo für nicht dringlichen Nachschub, z. B. Verpflegung der Einsatzkräfte nach größeren Einsätzen, genutzt."
   },
   {
     "Title":"RTB 2  (1-78)",
+    "Radio" :"1-78",
     "Description":"Rettungsboot",
     "URL":"http://www.feuerwehr-geiseheim/technik/fahrzeuge/boot/",
     "FullText":"Das Rettungsboot “Rheinpfeil” der Feuerwehr Geisenheim wird zur Personenrettung auf dem Rhein eingesetzt."

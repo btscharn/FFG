@@ -28,7 +28,11 @@ public class VehiclesFragment extends Fragment {
     public ListView listView;
 
     //define file which contains the displayed Strings
-    public String data = "data_vehicles.json";
+    public static String data = "data_vehicles.json";
+
+    public static String getData() {
+        return data;
+    }
 
     public VehiclesFragment() {
         // Required empty public constructor

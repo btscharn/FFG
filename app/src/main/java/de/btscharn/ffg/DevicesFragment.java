@@ -28,7 +28,11 @@ public class DevicesFragment extends Fragment {
     public ListView listView;
 
     //define file which contains the displayed Strings
-    public String data = "data_devices.json";
+    private static String data = "data_devices.json";
+
+    public static String getData() {
+        return data;
+    }
 
     public DevicesFragment() {
         // Required empty public constructor
