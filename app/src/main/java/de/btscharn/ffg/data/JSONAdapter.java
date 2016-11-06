@@ -28,7 +28,9 @@ import de.btscharn.ffg.VehicleDetailActivity;
  */
 public class JSONAdapter {
 
-    CustomListAdapter adapter;
+    private CustomListAdapter adapter;
+
+    private ArrayList<ListItem> listItem;
 
     private Context context1;
 
@@ -48,7 +50,6 @@ public class JSONAdapter {
                        ArrayList<ListItemDevices> listItem;
                    }
         */
-        ArrayList<ListItem> listItem;
         listItem = getArrayFromString(data, context);
         adapter = new CustomListAdapter(context, listItem);
         listView.setAdapter(adapter);
@@ -79,10 +80,11 @@ public class JSONAdapter {
             String description = obj.getString("Description");
             String url = obj.getString("URL");
             String fulltext = obj.getString("FullText");
-            listitems.add(new ListItem(title, description, url, fulltext));
+            int imageid = getImageID(context, obj.getString("Image"));
+            listitems.add(new ListItem(title, description, url, fulltext, imageid));
             if(data == VehiclesFragment.getData()) {
                 String radio = obj.getString("Radio");
-     //           listitems.add(new ListItem(title, radio, description, url, fulltext));
+     //           listitems.add(new ListItem(title, radio, description, url, fulltext, imageid));
             }
             if(data == DevicesFragment.getData()) {
                 int on1_11 = obj.getInt("1-11");
@@ -98,14 +100,23 @@ public class JSONAdapter {
         return listitems;
     }
 
+    public static int getImageID(Context context, String imageName) {
+        int imageid;
+        if(imageName.equals("") || imageName == null) {
+            imageName = "leiter_gross_placeholder"; //placeholder
+        }
+        imageid = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
+        return imageid;
+    }
+
     /**
      * Load JSON file which is given
      * @return JSON file as String
      */
-    public String loadJSONFromAsset(String json_file, Context context) {
+    public String loadJSONFromAsset(String jsonfile, Context context) {
         String json;
         try {
-            InputStream is = context.getAssets().open(json_file);
+            InputStream is = context.getAssets().open(jsonfile);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -131,6 +142,7 @@ public class JSONAdapter {
         String description = listitem.getDescription();
         String url = listitem.getURL();
         String fulltext = listitem.getFulltext();
+        int imageid = listitem.getImageid();
 
         // Erstelle einen neuen Intent und weise ihm eine Actvity zu
         Intent intent = new Intent(context, VehicleDetailActivity.class);
@@ -140,6 +152,7 @@ public class JSONAdapter {
         intent.putExtra("Description", description);
         intent.putExtra("URL", url);
         intent.putExtra("FullText", fulltext);
+        intent.putExtra("ImageID", imageid);
 
         // Starte Activity
         context.startActivity(intent);

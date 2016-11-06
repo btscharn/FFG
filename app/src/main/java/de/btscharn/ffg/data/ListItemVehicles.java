@@ -7,14 +7,16 @@ public class ListItemVehicles {
     private String description;
     private String url;
     private String fulltext;
+    private int imageid;
 
 
-    public ListItemVehicles(String title, String radio, String description, String url, String fulltext){
+    public ListItemVehicles(String title, String radio, String description, String url, String fulltext, int imageid){
         this.title = title;
         this.radio = radio;
         this.description = description;
         this.url = url;
         this.fulltext = fulltext;
+        this.imageid = imageid;
     }
 
     public void ListItemDevices(String radio) {
@@ -39,6 +41,10 @@ public class ListItemVehicles {
 
     public String getFulltext() {
         return fulltext;
+    }
+
+    public int getImageid() {
+        return imageid;
     }
 
 }

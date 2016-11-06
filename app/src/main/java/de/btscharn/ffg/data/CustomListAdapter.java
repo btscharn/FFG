@@ -33,7 +33,7 @@ public class CustomListAdapter extends ArrayAdapter<ListItem> {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        ListItem list = getItem(position);
+        ListItem listitem = getItem(position);
         if(convertView == null){
 
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_list, parent, false);
@@ -43,8 +43,8 @@ public class CustomListAdapter extends ArrayAdapter<ListItem> {
         TextView tvName = (TextView) convertView.findViewById(R.id.tv_name);
         TextView tvDescription = (TextView) convertView.findViewById(R.id.tv_description);
 
-        tvName.setText(list.getTitle());
-        tvDescription.setText(list.getDescription());
+        tvName.setText(listitem.getTitle());
+        tvDescription.setText(listitem.getDescription());
 
  //       tvName.setTag(list);
  //       tvName.setOnClickListener(new View.OnClickListener(){

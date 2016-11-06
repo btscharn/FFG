@@ -10,6 +10,8 @@ import android.widget.Button;
 
 import static android.R.attr.button;
 
+//TODO: Kill this class
+
 public class MainFragment extends Fragment {
     OnClickButtonListener mCallback;
 

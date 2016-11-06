@@ -16,6 +16,7 @@ public class VehicleDetailActivity extends AppCompatActivity {
     String url;
     String description;
     String fulltext;
+    int imageid;
     ImageView img;
 
     @Override
@@ -39,6 +40,7 @@ public class VehicleDetailActivity extends AppCompatActivity {
         description = i.getStringExtra("Description");
         url = i.getStringExtra("URL");
         fulltext = i.getStringExtra("FullText");
+        imageid = i.getIntExtra("ImageID", R.drawable.leiter_gross_placeholder);
 
         TextView content = (TextView) findViewById(R.id.text_detail_content);
         content.setText(fulltext);
@@ -46,7 +48,7 @@ public class VehicleDetailActivity extends AppCompatActivity {
         setTitle(title);
 
         //System.out.println(url);
-        titleImage();
+        titleImage(imageid);
 
     }
 
@@ -74,8 +76,8 @@ public class VehicleDetailActivity extends AppCompatActivity {
     /**
      * TODO: Replace placeholder image
      */
-    public void titleImage() {
+    public void titleImage(int imageid) {
         img = (ImageView) findViewById(R.id.image_vehicle_detail_appbar);
-        img.setImageResource(R.mipmap.ic_leiter);
+        img.setImageResource(imageid);
     }
 }

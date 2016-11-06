@@ -6,6 +6,7 @@ public class ListItem {
     private String description;
     private String url;
     private String fulltext;
+    private int imageid;
     //Vehicle-specific
     private String radio;
     //Device-specific
@@ -18,11 +19,12 @@ public class ListItem {
     private int on1_78;
 
 
-    public ListItem(String title, String description, String url, String fulltext){
+    public ListItem(String title, String description, String url, String fulltext, int imageid){
         this.title = title;
         this.description = description;
         this.url = url;
         this.fulltext = fulltext;
+        this.imageid = imageid;
     }
 
     public void ListItemVehicles(String radio) {
@@ -47,6 +49,10 @@ public class ListItem {
 
     public String getFulltext() {
         return fulltext;
+    }
+
+    public int getImageid() {
+        return imageid;
     }
 
 }

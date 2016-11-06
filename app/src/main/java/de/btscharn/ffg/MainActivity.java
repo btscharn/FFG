@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
                 case 1:
                     DevicesFragment tab2 = new DevicesFragment();
                     return tab2;
-// TODO: Create QuizFragment, set below getCount()  return 3
 //                case 2:
 //                    QuizFragment tab3 = new QuizFragment();
 //                    return tab3;
