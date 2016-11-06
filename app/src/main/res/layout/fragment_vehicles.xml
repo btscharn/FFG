@@ -4,11 +4,12 @@
     android:layout_height="match_parent"
     tools:context="de.btscharn.ffg.VehiclesFragment">
 
-    <!--TODO: ListView disappears behind navigation bar -->
+    <!--TODO: ListView paddingBottom = navigationBarSize -->
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/vehicles_list"/>
+        android:id="@+id/vehicles_list"
+        android:paddingBottom="?android:attr/actionBarSize" />
 
 </FrameLayout>
